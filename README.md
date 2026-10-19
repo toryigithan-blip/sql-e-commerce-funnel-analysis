@@ -88,7 +88,13 @@ Funnel: `page_view` > `add_to_cart` > `checkout_start` > `payment_info` > `purch
 
 ```
 funnel-analysis/
-├── funnel_analysis.sql
-├── user_events.csv
+├── dataset/
+│   └── user_events.csv
+├── scripts/
+│   ├── 1_sales_funnel_in_different_stages.sql
+│   ├── 2_conversion_rates_through_funnel.sql
+│   ├── 3_funnel_by_traffic_source.sql
+│   ├── 4_time_spent_in_funnel_stages.sql
+│   └── 5_revenue_funnel_analysis.sql
 └── README.md
 ```
