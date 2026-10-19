@@ -13,8 +13,6 @@ This project analyzes 30 days of user event data to find where the e-commerce fu
 
 ## 🗂️ Dataset
 
-Table: `user_data` (database `funnel_analysis`, loaded from `user_events.csv`)
-
 | Column | Description |
 |---|---|
 | `user_id` | Unique user identifier |
