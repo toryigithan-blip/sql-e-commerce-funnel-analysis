@@ -13,8 +13,6 @@ This project analyzes 30 days of user event data to find where the e-commerce fu
 
 ## 🗂️ Dataset
 
-Table: `user_data` (database `funnel_analysis`, loaded from `user_events.csv`)
-
 | Column | Description |
 |---|---|
 | `user_id` | Unique user identifier |
@@ -27,7 +25,7 @@ Analysis window: the last 30 days ending 2026-02-03 04:10:18 (latest event in th
 
 ## 🛠️ Tools
 
-SQL Server (T-SQL), CTEs, conditional aggregation, `DATEDIFF`
+SQL Server, CTEs, conditional aggregation, `DATEDIFF`
 
 ## 🔍 Approach
 
@@ -41,18 +39,16 @@ SQL Server (T-SQL), CTEs, conditional aggregation, `DATEDIFF`
 
 Funnel: `page_view` > `add_to_cart` > `checkout_start` > `payment_info` > `purchase`
 
-Full queries: [`funnel_analysis.sql`](funnel_analysis.sql)
-
 ## 📊 Key Findings
 
 **1. View to cart is the weakest step**
 - Payment to purchase is 92%, so there is no technical issue in the payment flow.
 - People view products but do not add them to cart. Some of this is expected browsing, but product display may also play a role.
 
-**2. Social brings volume, email brings buyers**
-- Social drives about 30% of traffic but has the lowest view-to-cart rate (14%).
+**2. Social media brings volume, email brings buyers**
+- Social media drives about 30% of traffic but has the lowest view-to-cart rate (14%).
 - Email has fewer views but converts far better: 63% view-to-cart, 34% view-to-purchase.
-- Social traffic looks like a vanity metric, since high volume is not turning into purchases.
+- Social media traffic looks like a vanity metric, since high volume is not turning into purchases.
 
 **3. Journey time shows no red flags**
 - 700 converted users: ~11 min view to cart, ~13 min cart to purchase, ~24 min total.
@@ -70,7 +66,7 @@ Full queries: [`funnel_analysis.sql`](funnel_analysis.sql)
 **2. Marketing Strategy**
 - **Stop over-investing in social for sales:** Social Media drives ~30% of our traffic (Volume) but has the lowest conversion rate (Efficiency). We are likely paying for "window shoppers."
   - *Action:* Shift budget away from "Traffic" objectives on social ads and focus on "Retargeting" or "Lead Gen" to capture emails instead.
-- **Double down on email marketing:** Email is our highest converting channel (~33% conversion rate vs ~6% for Social).
+- **Double down on email marketing:** Email is our highest converting channel (~34% conversion rate vs ~6% for Social).
   - *Action:* Implement an aggressive email capture popup for high-volume Social visitors. If we can get them onto our email list, our data proves they are far more likely to buy later.
 
 **3. Financial & Revenue**
@@ -80,7 +76,6 @@ Full queries: [`funnel_analysis.sql`](funnel_analysis.sql)
 ## ⚠️ Limitations and Next Steps
 
 **Limitations**
-- Each stage counts users who did that action, without checking they did the earlier steps first
 - One 30-day window, no seasonality
 - No CAC in the data, channel profitability is an assumption
 
